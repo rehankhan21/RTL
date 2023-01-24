@@ -19,6 +19,7 @@ test('button has correct initial color, and updates when clicked', () => {
 
   // expect the button text to be 'Change to MediumVioletRed'
   expect(colorButton).toHaveTextContent('Change to MediumVioletRed');
+  //expect(colorButton.textContent).toBe('Change to');
 });
 
 test('initial conditions', () => {
@@ -49,7 +50,7 @@ test('check box is checked after being clicked and button is disabled', () => {
     // expect button to be disabled when checked and color turns gray
     expect(colorButton).toHaveStyle({ backgroundColor: 'gray'})
     expect(checkbox).toBeChecked();
-    expect(colorButton).not.toBeEnabled();
+    expect(colorButton).toBeDisabled();
 
     fireEvent.click(checkbox);
 
