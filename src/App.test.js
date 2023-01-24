@@ -5,27 +5,27 @@ import { replaceCamelWithSpaces } from './App';
 test('button has correct initial color, and updates when clicked', () => {
   render(<App />);
   
-  // find an element with a role of button and text of 'Change to blue'
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  // find an element with a role of button and text of 'Change to MidnightBlue'
+  const colorButton = screen.getByRole('button', { name: 'Change to MidnightBlue' });
 
-  // expect the background color to be red
-  expect(colorButton).toHaveStyle({ backgroundColor: 'red' })
+  // expect the background color to be MediumVioletRed
+  expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' })
 
   // click button 
   fireEvent.click(colorButton);
 
-  // expect the background color to be blue
-  expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+  // expect the background color to be MidnightBlue
+  expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
 
-  // expect the button text to be 'Change to red'
-  expect(colorButton).toHaveTextContent('Change to red');
+  // expect the button text to be 'Change to MediumVioletRed'
+  expect(colorButton).toHaveTextContent('Change to MediumVioletRed');
 });
 
 test('initial conditions', () => {
   render(<App />);
 
   // check that the buttons starts out enabled
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colorButton = screen.getByRole('button', { name: 'Change to MidnightBlue' });
   expect(colorButton).toBeEnabled();
 
   // check that the checkbox starts out unchecked
@@ -37,7 +37,7 @@ test('check box is checked after being clicked and button is disabled', () => {
     render(<App />);
 
     // expect button to be enabled
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const colorButton = screen.getByRole('button', { name: 'Change to MidnightBlue' });
     expect(colorButton).toBeEnabled();
 
     // click checkbox and expect it to be checked
@@ -53,14 +53,14 @@ test('check box is checked after being clicked and button is disabled', () => {
 
     fireEvent.click(checkbox);
 
-    expect(colorButton).toHaveStyle({ backgroundColor: 'red'})
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed'})
     expect(checkbox).not.toBeChecked();
     expect(colorButton).toBeEnabled();
 });
 
 describe('spaces before camel-case capital letters', () => {
   test('Works for no inner capital letters', () => {
-    expect(replaceCamelWithSpaces('Red')).toBe('Red');
+    expect(replaceCamelWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
   })
   test('Works for one inner capital letter', () => {
     expect(replaceCamelWithSpaces('MidnightBlue')).toBe('Midnight Blue')
